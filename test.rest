@@ -1,0 +1,6 @@
+POST http://localhost:3000/employee
+Content-Type: application/json
+
+{
+    "query": "mutation { addEmployee(name: \"Trixie\", job: \"Ownership\", department: \"Boss\", salary: 120000, hire_date: \"2022-10-13T22:36:42.622Z\") { id } }"
+}

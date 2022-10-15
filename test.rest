@@ -1,6 +1,27 @@
+# POST http://localhost:3000/employee
+# Content-Type: application/json
+
+# {
+#     "query": "mutation { addEmployee(name: \"Trixie\", job: \"Ownership\", department: \"Boss\", salary: 120000, hire_date: \"2022-10-13T22:36:42.622Z\") { id name job department salary hire_date } }"
+# }
+
+# GET http://localhost:3000/employee
+# Content-Type: application/json
+
+# {
+#     "query": "query { employees { id name job department salary hire_date } }"
+# }
+
+# POST http://localhost:3000/employee
+# Content-Type: application/json
+
+# {
+#     "query": "mutation { deleteEmployee(id: 34) { id } }"
+# }
+
 POST http://localhost:3000/employee
 Content-Type: application/json
 
 {
-    "query": "mutation { addEmployee(name: \"Trixie\", job: \"Ownership\", department: \"Boss\", salary: 120000, hire_date: \"2022-10-13T22:36:42.622Z\") { id } }"
+    "query": "mutation { updateEmployee(id: 34, name: \"John\") { id name job department salary hire_date } }"
 }

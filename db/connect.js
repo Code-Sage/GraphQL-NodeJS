@@ -1,5 +1,6 @@
 const { DataSource } = require("typeorm");
 
+//  initialize connection to DB with all credentials below and export DataSource for use across application
 const dataSource = new DataSource({
   type: process.env.DB_TYPE,
   host: process.env.DB_HOST,
@@ -7,6 +8,7 @@ const dataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
+  //  entities are TypeORM representations of tables in the DB
   entities: [require("../models/employee")],
 });
 

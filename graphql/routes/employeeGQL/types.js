@@ -1,7 +1,8 @@
 const { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLList, GraphQLInt, GraphQLNonNull } = require("graphql");
 const { DateTimeScalarType } = require("../../scalars/dateTimeScalar");
-const EMPLOYEE_MODEL_NAME = "Employee";
 
+const EMPLOYEE_MODEL_NAME = "Employee";
+//  Employee entity representation in GraphQL
 const EmployeeType = new GraphQLObjectType({
   name: EMPLOYEE_MODEL_NAME,
   description: `${EMPLOYEE_MODEL_NAME} type.`,

@@ -1,6 +1,7 @@
 const { graphqlHTTP } = require("express-graphql");
 const { GraphQLSchema, GraphQLObjectType } = require("graphql");
 
+//  GraphQL type specifying 'fields' provided by main entry point for queries on endpoint "/employee"
 const EmployeeRootQueryType = new GraphQLObjectType({
   name: "EmployeeRootQuery",
   description: "Queries for Employees",
@@ -10,6 +11,7 @@ const EmployeeRootQueryType = new GraphQLObjectType({
   }),
 });
 
+//  GraphQL type specifying 'fields'/operations provided by main entry point for mutations on endpoint "/employee"
 const EmmployeeRootMutationType = new GraphQLObjectType({
   name: "EmployeeRootMutations",
   description: "Mutations for Employees",
@@ -20,18 +22,21 @@ const EmmployeeRootMutationType = new GraphQLObjectType({
   },
 });
 
+//  GraphQL schema for endpoint "/employee"
 const employeeSchema = new GraphQLSchema({
   query: EmployeeRootQueryType,
   mutation: EmmployeeRootMutationType,
 });
 
+//  GraphQL middleware made for ExpressJS from GraphQL schema above
 const employeeGQL = graphqlHTTP({
   schema: employeeSchema,
+  //  handling custom errors that are JSON strings
   customFormatErrorFn: err => {
     try {
       return JSON.parse(err.message);
     } catch (error) {
-      return err.message;
+      return err;
     }
   },
 });
